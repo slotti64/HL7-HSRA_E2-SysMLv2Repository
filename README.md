@@ -4,7 +4,7 @@ The system's purpose is to implement a SysML v2 model repository that exposes st
 
 The final goal is a curated knowledge base of reusable specification models (from HL7-HSRA) that humans and AI agents can query, reason over, and extend under governance.
 
-##Design Principles (under revision)
+## Design Principles (under revision)
 
  - Standards first. The repository conforms to the OMG SysML v2 Systems Modeling API and Services specification; bespoke behavior is confined to layers above the standard API.
  - Versioning is intrinsic. The native Project–Commit–Branch–Tag model of the standard is the single source of truth for history; no parallel versioning scheme is introduced.
