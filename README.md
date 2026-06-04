@@ -1,4 +1,4 @@
-# HL7-HSRA_E2-SysMLv2Repository
+# HL7 HSRA E2 SysML v2 Repository
 
 The system's purpose is to implement a SysML v2 model repository that exposes standard APIs, natively manages model versioning, and makes the repository accessible to GenAI agents via the Model Context Protocol (MCP). 
 
