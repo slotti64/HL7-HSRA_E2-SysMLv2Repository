@@ -13,3 +13,5 @@ The final goal is a curated knowledge base of reusable specification models (fro
  - Separation of structure and semantics. Deterministic structural queries and approximate semantic retrieval are distinct paths that reconcile on stable element identifiers.
 
 _**The project is currently in an early design phase**_.
+
+[License](https://github.com/slotti64/HL7-HSRA_E2-SysMLv2Repository/blob/main/LICENSE)
