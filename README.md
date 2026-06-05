@@ -16,7 +16,7 @@ The final goal is a curated knowledge base of reusable specification models (fro
 
 ## Project site
 
-https://shorturl.at/QNbqs
+[HL7 Health Services Reference Architecture (HL7-HSRA)](https://confluence.hl7.org/spaces/SOA/pages/35720450/Health+Services+Reference+Architecture+HL7-HSRA)
 
 ## status
 
