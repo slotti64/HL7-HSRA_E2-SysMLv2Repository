@@ -1,0 +1,21 @@
+# Deploy (NON fork) del pilot OMG "SysML v2 API & Services" (C1).
+# Immagine base come da issue #115 del repo upstream (Scala-sbt + GraalVM CE, Java 11).
+FROM sbtscala/scala-sbt:graalvm-ce-22.3.3-b1-java11_1.9.8_3.3.1
+
+# Host del DB. Il default upstream e' "localhost" (hardcoded in conf/META-INF/persistence.xml).
+# In docker-compose il DB e' un servizio separato ("postgres"): sovrascriviamo SOLO l'host.
+# Questo e' un override di configurazione di deployment, non una modifica del codice sorgente.
+ARG DB_HOST=postgres
+
+WORKDIR /app
+COPY ./ /app
+
+# Ripuntamento della connessione JDBC verso il servizio Postgres del compose.
+RUN sed -i "s#jdbc:postgresql://localhost:5432/sysml2#jdbc:postgresql://${DB_HOST}:5432/sysml2#g" \
+        conf/META-INF/persistence.xml
+
+# Pre-compilazione (scarica le dipendenze sbt in fase di build).
+RUN sbt clean && sbt compile
+
+EXPOSE 9000
+CMD ["sbt", "run"]

@@ -1,0 +1,42 @@
+name: hl7-hsra-sysml2
+
+# C1 (SysML v2 API & Services) + C3 (PostgreSQL) per l'Incremento 1.
+# Vedi deploy/README.md per il clone del sorgente upstream e i comandi.
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: sysml2-postgres
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: sysml2
+    ports:
+      - "5432:5432"
+    volumes:
+      - sysml2-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d sysml2"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  sysml-api:
+    build:
+      # Il sorgente upstream va clonato qui (vedi README); non e' versionato in questo repo.
+      context: ./SysML-v2-API-Services
+      dockerfile: Dockerfile
+      args:
+        DB_HOST: postgres
+    container_name: sysml2-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "9000:9000"
+    # 'sbt run' is Play's interactive dev server: it stops on stdin EOF/Enter.
+    # Keep stdin and a TTY open so the server keeps serving in the container.
+    stdin_open: true
+    tty: true
+
+volumes:
+  sysml2-pgdata:
