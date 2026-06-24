@@ -1,6 +1,8 @@
 # HL7 HSRA E2 SysML v2 Repository
 
-The system's purpose is to implement a SysML v2 model repository that exposes standard APIs, natively manages model versioning, and makes the repository accessible to GenAI agents via the Model Context Protocol (MCP). 
+## Goals
+
+In the context of the HL7-HSRA E2 project, the system's purpose is to implement a SysML v2 model repository that exposes standard APIs, natively manages model versioning, and makes the repository accessible to GenAI agents via the Model Context Protocol (MCP). 
 
 The final goal is a curated knowledge base of reusable specification models (from HL7-HSRA) that humans and AI agents can query, reason over, and extend under governance.
 
@@ -48,3 +50,11 @@ python scripts/load_library.py                       # creates project + commit 
 
 # 3. Consume via the cc-sysml MCP tools (tool_repo_*) — see docs/demo-prompts.md
 ```
+
+## Project site
+
+[HL7 Health Services Reference Architecture (HL7-HSRA)](https://confluence.hl7.org/spaces/SOA/pages/35720450/Health+Services+Reference+Architecture+HL7-HSRA)
+
+## License
+
+[License](https://github.com/slotti64/HL7-HSRA_E2-SysMLv2Repository/blob/main/LICENSE)
